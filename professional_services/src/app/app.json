@@ -1,5 +1,5 @@
 {
-  "name": "Professional Services Samples",
+  "name": "Professional Services Samples created by HubSpot Developer Relations",
   "description": "This is a sample application to demonstrate custom card capabilities with examples specific to the manufacturing industry.",
   "uid": "professional_services",
   "scopes": ["crm.objects.contacts.read", "crm.objects.contacts.write"],

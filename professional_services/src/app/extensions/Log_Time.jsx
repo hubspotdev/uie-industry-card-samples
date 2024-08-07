@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import {
-  Divider,
-  Link,
   Button,
-  Text,
-  Input,
+  Checkbox,
+  Divider,
+  DateInput,
+  Dropdown,
   Flex,
+  Form,
+  Input,
+  NumberInput,
+  ProgressBar,
+  Select,
   hubspot,
 } from "@hubspot/ui-extensions";
 
-// Define the extension to be run within the Hubspot CRM
 hubspot.extend(({ context, runServerlessFunction, actions }) => (
   <Extension
     context={context}
@@ -18,58 +22,89 @@ hubspot.extend(({ context, runServerlessFunction, actions }) => (
   />
 ));
 
-// Define the Extension component, taking in runServerless, context, & sendAlert as props
-const Extension = ({ context, runServerless, sendAlert }) => {
-  const [text, setText] = useState("");
+const Extension = () => {
+  const [isBillable, setIsBillable] = useState(false);
 
-  // Call serverless function to execute with parameters.
-  // The `myFunc` function name is configured inside `serverless.json`
-  const handleClick = async () => {
-    const { response } = await runServerless({ name: "myFunc", parameters: { text: text } });
-    sendAlert({ message: response });
-  };
+  const categoryOptions = [
+    { value: "planning", label: "Project planning" },
+    { value: "research", label: "Project research" },
+    { value: "development", label: "Project development" },
+  ];
+
+  const logTimeOptions = [
+    {
+      label: "Add time log",
+    },
+    {
+      label: "Modify time log",
+    },
+  ];
 
   return (
     <>
-      <Text>
-        <Text format={{ fontWeight: "bold" }}>
-          Your first UI extension is ready!
-        </Text>
-        Congratulations, {context.user.firstName}! You just deployed your first
-        HubSpot UI extension. This example demonstrates how you would send
-        parameters from your React frontend to the serverless function and get a
-        response back.
-      </Text>
-      <Flex direction="row" align="end" gap="small">
-        <Input name="text" label="Send" onInput={(t) => setText(t)} />
-        <Button type="submit" onClick={handleClick}>
-          Click me
-        </Button>
-      </Flex>
+      <ProgressBar
+        title="Alloted Hours"
+        variant="success"
+        value={200}
+        maxValue={200}
+        valueDescription="200"
+      />
+
+      <ProgressBar
+        title="Billed Hours"
+        variant="warning"
+        value={56}
+        maxValue={200}
+        valueDescription="56 of 200"
+      />
+
       <Divider />
-      <Text>
-        What now? Explore all available{" "}
-        <Link href="https://developers.hubspot.com/docs/platform/ui-extension-components">
-          UI components
-        </Link>
-        , get an overview of{" "}
-        <Link href="https://developers.hubspot.com/docs/platform/ui-extensions-overview">
-          UI extensions
-        </Link>
-        , learn how to{" "}
-        <Link href="https://developers.hubspot.com/docs/platform/create-ui-extensions">
-          add a new custom card
-        </Link>
-        , jump right in with our{" "}
-        <Link href="https://developers.hubspot.com/docs/platform/ui-extensions-quickstart">
-          Quickstart Guide
-        </Link>
-        , or check out our{" "}
-        <Link href="https://github.com/HubSpot/ui-extensions-react-examples">
-          code Samples
-        </Link>
-        .
-      </Text>
+
+      <Form
+        onSubmit={() => {
+          console.log("Form submitted!");
+        }}
+      >
+        <Flex direction="column" gap="small">
+          <Input
+            label="Employee Name"
+            name="employeeName"
+            placeholder="Name"
+            type="text"
+          />
+
+          <Select
+            label="Category"
+            name="category"
+            tooltip="Select a category that best represents the billable hours."
+            placeholder="Select a category"
+            options={categoryOptions}
+          />
+
+          <NumberInput label="Hours" name="hours" required={true} />
+
+          <DateInput label="Date" name="date" />
+
+          <Checkbox checked={isBillable} name="billable">
+            Billable
+          </Checkbox>
+        </Flex>
+      </Form>
+
+      <Divider />
+
+      <Flex direction="row" gap="small" justify="start">
+        <Dropdown
+          options={logTimeOptions}
+          variant="primary"
+          buttonSize="md"
+          buttonText="Log Time"
+        />
+
+        <Button>Past Entries</Button>
+
+        <Button href="hubspot.com">Review Guidelines</Button>
+      </Flex>
     </>
   );
 };

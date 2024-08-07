@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import {
-  Divider,
-  Link,
+  Alert,
   Button,
-  Text,
-  Input,
+  Divider,
+  Dropdown,
   Flex,
+  Link,
+  Statistics,
+  StatisticsItem,
+  StatisticsTrend,
+  StepIndicator,
+  Text,
   hubspot,
 } from "@hubspot/ui-extensions";
 
-// Define the extension to be run within the Hubspot CRM
 hubspot.extend(({ context, runServerlessFunction, actions }) => (
   <Extension
     context={context}
@@ -18,58 +22,72 @@ hubspot.extend(({ context, runServerlessFunction, actions }) => (
   />
 ));
 
-// Define the Extension component, taking in runServerless, context, & sendAlert as props
-const Extension = ({ context, runServerless, sendAlert }) => {
-  const [text, setText] = useState("");
+const PROJECT_STEPS = ["Kickoff", "Onsite", "Scoping", "Implement", "Deliver"];
 
-  // Call serverless function to execute with parameters.
-  // The `myFunc` function name is configured inside `serverless.json`
-  const handleClick = async () => {
-    const { response } = await runServerless({ name: "myFunc", parameters: { text: text } });
-    sendAlert({ message: response });
-  };
+const Extension = () => {
+  const [currentProjectStep, setCurrentProjectStep] = useState(3);
+  const snapshotManageOptions = [
+    {
+      label: "Action recommendation",
+      onClick: () => console.log({ message: "Action recommendation" }),
+    },
+    {
+      label: "Ignore recommendation",
+      onClick: () => console.log({ message: "Ignore recommendation" }),
+    },
+  ];
 
   return (
     <>
-      <Text>
-        <Text format={{ fontWeight: "bold" }}>
-          Your first UI extension is ready!
-        </Text>
-        Congratulations, {context.user.firstName}! You just deployed your first
-        HubSpot UI extension. This example demonstrates how you would send
-        parameters from your React frontend to the serverless function and get a
-        response back.
-      </Text>
-      <Flex direction="row" align="end" gap="small">
-        <Input name="text" label="Send" onInput={(t) => setText(t)} />
-        <Button type="submit" onClick={handleClick}>
-          Click me
-        </Button>
+      <Flex direction="column" gap="medium">
+        <Flex direction="row" justify="start" gap="small">
+          <Alert variant="warning">Recommended Action</Alert>
+          <Alert variant="danger">Urgent</Alert>
+        </Flex>
+
+        <Flex direction="column" gap="extra-small">
+          <Text>
+            <Text format={{ fontWeight: "bold" }} inline={true}>
+              Send email
+            </Text>{" "}
+            to Project Manager [John Doe] requesting additional meetings to
+            discuss scope implications. See recent thread from [09/18/2022] for
+            additional context.
+          </Text>
+          <Link>Review recommendation details</Link>
+        </Flex>
+
+        <Divider />
+
+        <Flex>
+          <StepIndicator
+            currentStep={currentProjectStep}
+            stepNames={PROJECT_STEPS}
+          />
+        </Flex>
+
+        <Statistics>
+          <StatisticsItem label="Days to Kickoff" number="0"></StatisticsItem>
+          <StatisticsItem label="Days to Delivery" number="47"></StatisticsItem>
+          <StatisticsItem label="Remaining Tasks" number="29">
+            <StatisticsTrend direction="increase" value="2%" />
+          </StatisticsItem>
+          <StatisticsItem label="Remaining Hours" number="144">
+            <StatisticsTrend direction="increase" value="4%" />
+          </StatisticsItem>
+        </Statistics>
+
+        <Divider />
+
+        <Flex direction="row" gap="small" justify="end">
+          <Button href="hubspot.com">Request additional hours</Button>
+          <Dropdown
+            options={snapshotManageOptions}
+            buttonText="Manage"
+            variant="primary"
+          />
+        </Flex>
       </Flex>
-      <Divider />
-      <Text>
-        What now? Explore all available{" "}
-        <Link href="https://developers.hubspot.com/docs/platform/ui-extension-components">
-          UI components
-        </Link>
-        , get an overview of{" "}
-        <Link href="https://developers.hubspot.com/docs/platform/ui-extensions-overview">
-          UI extensions
-        </Link>
-        , learn how to{" "}
-        <Link href="https://developers.hubspot.com/docs/platform/create-ui-extensions">
-          add a new custom card
-        </Link>
-        , jump right in with our{" "}
-        <Link href="https://developers.hubspot.com/docs/platform/ui-extensions-quickstart">
-          Quickstart Guide
-        </Link>
-        , or check out our{" "}
-        <Link href="https://github.com/HubSpot/ui-extensions-react-examples">
-          code Samples
-        </Link>
-        .
-      </Text>
     </>
   );
 };

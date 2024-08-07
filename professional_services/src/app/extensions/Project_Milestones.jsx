@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import {
-  Divider,
-  Link,
+  Alert,
   Button,
-  Text,
-  Input,
+  Divider,
+  Dropdown,
   Flex,
+  Heading,
+  ProgressBar,
+  StepIndicator,
+  Text,
   hubspot,
 } from "@hubspot/ui-extensions";
 
-// Define the extension to be run within the Hubspot CRM
 hubspot.extend(({ context, runServerlessFunction, actions }) => (
   <Extension
     context={context}
@@ -18,58 +20,82 @@ hubspot.extend(({ context, runServerlessFunction, actions }) => (
   />
 ));
 
-// Define the Extension component, taking in runServerless, context, & sendAlert as props
-const Extension = ({ context, runServerless, sendAlert }) => {
-  const [text, setText] = useState("");
+const PROJECT_STEPS = ["Kickoff", "Onsite", "Scoping", "Implement", "Deliver"];
 
-  // Call serverless function to execute with parameters.
-  // The `myFunc` function name is configured inside `serverless.json`
-  const handleClick = async () => {
-    const { response } = await runServerless({ name: "myFunc", parameters: { text: text } });
-    sendAlert({ message: response });
-  };
+const Extension = () => {
+  const [currentProjectStep, setCurrentProjectStep] = useState(3);
+  const milestoneManageOptions = [
+    {
+      label: "Update milestone",
+      onClick: () => console.log({ message: "Update milestone" }),
+    },
+    {
+      label: "New milestone",
+      onClick: () => console.log({ message: "Add new milestone" }),
+    },
+  ];
 
   return (
     <>
-      <Text>
-        <Text format={{ fontWeight: "bold" }}>
-          Your first UI extension is ready!
+      <Flex direction="column" gap="medium">
+        <Flex direction="row" justify="between">
+          <Heading>Project Milestones</Heading>
+          <Alert variant="info">Active</Alert>
+        </Flex>
+
+        <Flex>
+          <StepIndicator
+            currentStep={currentProjectStep}
+            stepNames={PROJECT_STEPS}
+          />
+        </Flex>
+
+        <Text>
+          <Text format={{ fontWeight: "bold" }} inline={true}>
+            Latest update:
+          </Text>{" "}
+          Working with Marcus to secure approval from leadership on most recent
+          scoping changes.
         </Text>
-        Congratulations, {context.user.firstName}! You just deployed your first
-        HubSpot UI extension. This example demonstrates how you would send
-        parameters from your React frontend to the serverless function and get a
-        response back.
-      </Text>
-      <Flex direction="row" align="end" gap="small">
-        <Input name="text" label="Send" onInput={(t) => setText(t)} />
-        <Button type="submit" onClick={handleClick}>
-          Click me
-        </Button>
+
+        <Flex direction="column" gap="flush">
+          <ProgressBar
+            title="Project Kickoff"
+            variant="success"
+            value={100}
+            maxValue={100}
+            valueDescription="100%"
+          />
+
+          <ProgressBar
+            title="Requirements Scoped"
+            variant="warning"
+            value={65}
+            maxValue={100}
+            valueDescription="65%"
+          />
+
+          <ProgressBar
+            title="Solution Delivered"
+            variant="warning"
+            value={15}
+            maxValue={100}
+            valueDescription="15%"
+          />
+        </Flex>
+
+        <Divider />
+
+        <Flex direction="row" gap="small" justify="end">
+          <Button>View Child Tasks</Button>
+          <Button>Email Client</Button>
+          <Dropdown
+            options={milestoneManageOptions}
+            buttonText="Manage"
+            variant="primary"
+          />
+        </Flex>
       </Flex>
-      <Divider />
-      <Text>
-        What now? Explore all available{" "}
-        <Link href="https://developers.hubspot.com/docs/platform/ui-extension-components">
-          UI components
-        </Link>
-        , get an overview of{" "}
-        <Link href="https://developers.hubspot.com/docs/platform/ui-extensions-overview">
-          UI extensions
-        </Link>
-        , learn how to{" "}
-        <Link href="https://developers.hubspot.com/docs/platform/create-ui-extensions">
-          add a new custom card
-        </Link>
-        , jump right in with our{" "}
-        <Link href="https://developers.hubspot.com/docs/platform/ui-extensions-quickstart">
-          Quickstart Guide
-        </Link>
-        , or check out our{" "}
-        <Link href="https://github.com/HubSpot/ui-extensions-react-examples">
-          code Samples
-        </Link>
-        .
-      </Text>
     </>
   );
 };
