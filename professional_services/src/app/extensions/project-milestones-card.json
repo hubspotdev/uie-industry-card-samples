@@ -1,11 +1,11 @@
 {
   "type": "crm-card",
   "data": {
-    "title": "Example Card",
-    "uid": "get_started_card",
+    "title": "Project Milestones",
+    "uid": "professional_services_project_milestones",
     "location": "crm.record.tab",
     "module": {
-      "file": "Example.jsx"
+      "file": "Project_Milestones.jsx"
     },
     "objectTypes": [
       {

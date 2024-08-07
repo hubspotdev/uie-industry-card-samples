@@ -1,0 +1,16 @@
+{
+  "type": "crm-card",
+  "data": {
+    "title": "Project Snapshot",
+    "uid": "professional_services_project_snapshot",
+    "location": "crm.record.tab",
+    "module": {
+      "file": "Project_Snapshot.jsx"
+    },
+    "objectTypes": [
+      {
+        "name": "contacts"
+      }
+    ]
+  }
+}

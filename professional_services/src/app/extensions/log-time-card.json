@@ -1,0 +1,16 @@
+{
+  "type": "crm-card",
+  "data": {
+    "title": "Log Time",
+    "uid": "professional_services_log_time",
+    "location": "crm.record.tab",
+    "module": {
+      "file": "Log_Time.jsx"
+    },
+    "objectTypes": [
+      {
+        "name": "contacts"
+      }
+    ]
+  }
+}
