@@ -1,11 +1,11 @@
 {
   "type": "crm-card",
   "data": {
-    "title": "Example Card",
-    "uid": "get_started_card",
+    "title": "Refer Patient",
+    "uid": "healthcare_refer_patient",
     "location": "crm.record.tab",
     "module": {
-      "file": "Example.jsx"
+      "file": "Refer_Patient.jsx"
     },
     "objectTypes": [
       {
