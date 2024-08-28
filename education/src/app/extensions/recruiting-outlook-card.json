@@ -1,0 +1,16 @@
+{
+  "type": "crm-card",
+  "data": {
+    "title": "Recruiting Outlook",
+    "uid": "education_recruiting_outlook",
+    "location": "crm.record.tab",
+    "module": {
+      "file": "Recruiting_Outlook.jsx"
+    },
+    "objectTypes": [
+      {
+        "name": "contacts"
+      }
+    ]
+  }
+}

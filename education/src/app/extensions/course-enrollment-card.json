@@ -1,0 +1,16 @@
+{
+  "type": "crm-card",
+  "data": {
+    "title": "Course Enrollment",
+    "uid": "education_course_enrollment",
+    "location": "crm.record.tab",
+    "module": {
+      "file": "Course_Enrollment.jsx"
+    },
+    "objectTypes": [
+      {
+        "name": "contacts"
+      }
+    ]
+  }
+}

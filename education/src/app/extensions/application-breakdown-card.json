@@ -1,0 +1,16 @@
+{
+  "type": "crm-card",
+  "data": {
+    "title": "Application Breakdown",
+    "uid": "education_application_breakdown",
+    "location": "crm.record.tab",
+    "module": {
+      "file": "Application_Breakdown.jsx"
+    },
+    "objectTypes": [
+      {
+        "name": "contacts"
+      }
+    ]
+  }
+}
