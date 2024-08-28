@@ -1,0 +1,22 @@
+{
+  "name": "Manufacturing Samples created by HubSpot Developer Relations",
+  "description": "This is a sample application to demonstrate custom card capabilities with examples specific to the manufacturing industry.",
+  "uid": "manufacturing",
+  "scopes": ["crm.objects.contacts.read", "crm.objects.contacts.write"],
+  "public": false,
+  "extensions": {
+    "crm": {
+      "cards": [
+        {
+          "file": "extensions/manufacturing-card.json"
+        },
+        {
+          "file": "extensions/returns-card.json"
+        },
+        {
+          "file": "extensions/product-review-card.json"
+        }
+      ]
+    }
+  }
+}
