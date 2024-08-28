@@ -1,0 +1,22 @@
+{
+  "name": "Education Samples created by HubSpot Developer Relations",
+  "description": "This is a sample application to demonstrate custom card capabilities with examples specific to the education industry.",
+  "uid": "get_started_app",
+  "scopes": ["crm.objects.contacts.read", "crm.objects.contacts.write"],
+  "public": false,
+  "extensions": {
+    "crm": {
+      "cards": [
+        {
+          "file": "extensions/course-enrollment-card.json"
+        },
+        {
+          "file": "extensions/application-breakdown-card.json"
+        },
+        {
+          "file": "extensions/recruiting-outlook-card.json"
+        }
+      ]
+    }
+  }
+}
