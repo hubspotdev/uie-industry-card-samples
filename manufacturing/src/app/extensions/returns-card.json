@@ -1,0 +1,17 @@
+{
+  "type": "crm-card",
+  "data": {
+    "title": "Returns",
+    "uid": "manufacturing_returns",
+    "location": "crm.record.tab",
+    "module": {
+      "file": "Returns.jsx"
+    },
+    "objectTypes": [
+      {
+        "id": "2-32278222",
+        "name": "p_furniture"
+      }
+    ]
+  }
+}

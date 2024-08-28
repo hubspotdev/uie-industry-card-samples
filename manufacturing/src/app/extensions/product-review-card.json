@@ -1,0 +1,17 @@
+{
+  "type": "crm-card",
+  "data": {
+    "title": "Product Review",
+    "uid": "manufacturing_product_review",
+    "location": "crm.record.tab",
+    "module": {
+      "file": "Product-Review.jsx"
+    },
+    "objectTypes": [
+      {
+        "id": "2-32278222",
+        "name": "p_furniture"
+      }
+    ]
+  }
+}

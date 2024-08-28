@@ -1,0 +1,17 @@
+{
+  "type": "crm-card",
+  "data": {
+    "title": "Manufacturing",
+    "uid": "manufacturing_manufacturing",
+    "location": "crm.record.tab",
+    "module": {
+      "file": "Manufacturing.jsx"
+    },
+    "objectTypes": [
+      {
+        "id": "2-32278222",
+        "name": "p_furniture"
+      }
+    ]
+  }
+}
