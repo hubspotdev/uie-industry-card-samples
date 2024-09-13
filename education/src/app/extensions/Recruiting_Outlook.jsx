@@ -33,8 +33,9 @@ const RECRUITMENT_STEPS = [
   "Offer Letter",
 ];
 
-const Extension = () => {
+const Extension = ({ context }) => {
   const [currentRecruitmentStep, setCurrentRecruitmentStep] = useState(2);
+  const { objectId, objectTypeId } = context.crm;
 
   return (
     <>
@@ -53,8 +54,8 @@ const Extension = () => {
         <Accordion title="Student Details" defaultOpen={true}>
           <Flex direction="column" gap="medium">
             <CrmPropertyList
-              objectTypeId="2-33807645"
-              objectId="14735542666"
+              objectTypeId={objectTypeId} // Replace with your objectTypeId
+              objectId={objectId} // Replace with your objectId
               properties={[
                 "alumni_relations",
                 "standardized_scores",

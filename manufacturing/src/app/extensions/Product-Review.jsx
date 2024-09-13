@@ -11,7 +11,8 @@ hubspot.extend(({ context, runServerlessFunction, actions }) => (
   />
 ));
 
-const Extension = () => {
+const Extension = ({ context }) => {
+  const { objectId, objectTypeId } = context.crm;
   return (
     <>
       <Accordion title="Product Review" defaultOpen={true}>
@@ -29,8 +30,8 @@ const Extension = () => {
 
           <Accordion title="Item details" defaultOpen={true}>
             <CrmPropertyList
-              objectTypeId="2-131391613"
-              objectId="6588512467"
+              objectTypeId={objectTypeId} // Replace with your objectTypeId
+              objectId={objectId} // Replace with your objectId
               properties={[
                 "sku",
                 "length",
