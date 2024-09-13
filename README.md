@@ -8,10 +8,10 @@ Unlock the power of tailored digital experiences with our repository of industry
 
 Within this repo, you will find a collection of static card samples representing various industries designed to get you started and spark your creativity, including:
 
-* **Education**: Enhance administrative efficiency by tracking student recruitment progress, managing communication, and providing insights into course enrollment and student performance.
-* **Manufacturing**: Streamline operations by managing furniture returns, reviewing product details and images, and tracking manufacturing order production status with progress indicators and detailed steps.
-* **Professional Services**: Track client interactions, manage service delivery schedules, and monitor project timelines by providing project snapshots, displaying project status and milestones, and logging billed hours with progress indicators.
-* **Healthcare**: Improve patient management with tools such as a patient referral form to streamline patient referrals.
+* [**Education**](https://github.com/hubspotdev/uie-industry-card-samples/tree/main/education): Enhance administrative efficiency by tracking student recruitment progress, managing communication, and providing insights into course enrollment and student performance.
+* [**Manufacturing**](https://github.com/hubspotdev/uie-industry-card-samples/tree/main/manufacturing): Streamline operations by managing furniture returns, reviewing product details and images, and tracking manufacturing order production status with progress indicators and detailed steps.
+* [**Professional Services**](https://github.com/hubspotdev/uie-industry-card-samples/tree/main/professional_services): Track client interactions, manage service delivery schedules, and monitor project timelines by providing project snapshots, displaying project status and milestones, and logging billed hours with progress indicators.
+* [**Healthcare**](https://github.com/hubspotdev/uie-industry-card-samples/tree/main/healthcare): Improve patient management with tools such as a patient referral form to streamline patient referrals.
 
 
 ## Installing the App Cards
@@ -58,38 +58,11 @@ When making changes to configuration files (`{CARD_NAME}-card.json` and `app.jso
 
 These cards are configured to be viewed on Contact records. To view these cards for development, view any contact record and select `Customize record`. Select the view you would like to update from the table and choose `Add cards`.
 
-![][image1]
+<img width="665" alt="CRM record customization page" src="https://github.com/user-attachments/assets/22452203-f63a-45c4-84a7-17d240109258">
 
 ## Learn More About UI Extensions
 
 To learn more about building apps cards, visit the [HubSpot UI Extensions landing page](https://developers.hubspot.com/build-app-cards) or the [HubSpot Developer UI Extensions documentation](https://developers.hubspot.com/beta-docs/guides/crm/ui-extensions/overview).
-
-
-
-| Card | Description | Requires Custom Object |
-| ----- | ------------ | :---------------------: |
-| **Recruiting Outlook** <hr /> ![Recuiting Outlook custom card](https://github.com/user-attachments/assets/f6c8119e-bbf4-49fa-98fc-5bd01111ec42) | A student's progress through the recruitment process, displayed in a progress bar, accompanied by student details in a property list, and related financial assistance within a table | YES
-| **Course Enrollment** <hr /> ![Course Enrollment custom card](https://github.com/user-attachments/assets/1849cab3-01e5-4053-8224-0f39aa19e1c2) | A collection of course statistics accompanied by a table of a student's current and past courseload | NO
-
-<hr />
-
-### Manufacturing
-
-| Card | Description | Requires Custom Object |
-| ----- | ------------ | :---------------------: |
-| **Returns** <hr /> ![Returns custom card](https://github.com/user-attachments/assets/0c7830b3-5563-4904-b86c-100ec4d190de) | A form used to initiate a furniture return after purchase, accompanied by a table of associated furniture pieces | NO
-| **Product Review** <hr /> ![Product Review custom card](https://github.com/user-attachments/assets/6c2c325d-bc26-4090-8549-2aa5d6985609) | Displays furniture properties in a property list with an image of the piece| YES
-| **Manufacturing** <hr/> ![Manufacturing custom card](https://github.com/user-attachments/assets/abcb5414-3604-40b6-af1d-f363c25aade8) | Manufacturing order production status displayed with progress bars and further details in a step indicator and table | NO
-
-<hr />
-
-### Professional Services
-
-| Card | Description | Requires Custom Object |
-| ----- | ------------ | :---------------------: |
-| **Project Snapshot** <hr /> ![Project Snapshot custom card](https://github.com/user-attachments/assets/6f92a030-2802-4835-a7c3-1b0ec31101ad) | A project snapshot with statistics and a project step indicator| NO
-| **Project Milestones** <hr /> ![Project Milestones custom card](https://github.com/user-attachments/assets/124f0b25-0f23-40b8-bf45-faa99eada6c2) | Project status and milestones displayed with progress bars and a project step indicator | NO
-| **Log Time** <hr/> ![Log Time custom card](https://github.com/user-attachments/assets/2166369e-3df1-40d4-bdcb-9744fef638d2) | A log form and summary of billed hours displayed with progress bars| NO
 
 
 
