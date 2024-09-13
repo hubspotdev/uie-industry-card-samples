@@ -1,17 +1,18 @@
-# HubSpot Getting Started Project Template
+# Education
 
-This is the Getting Started project for HubSpot developer projects. It contains a private app, a CRM card written in React, and a serverless function that the CRM card is able to interact with. This code is intended to help developers get up and running with developer projects quickly and easily.
+## Cards
 
-## Requirements
+### Recruiting Outlook
 
-There are a few things that must be set up before you can make use of this getting started project.
+A student's progress through the recruitment process, displayed in a progress bar, accompanied by student details in a property list, and related financial assistance within a table.
 
-- You must have an active HubSpot account.
-- You must have the [HubSpot CLI](https://www.npmjs.com/package/@hubspot/cli) installed and set up.
-- You must have access to developer projects (developer projects are currently [in public beta under "CRM Development Tools"](https://app.hubspot.com/l/whats-new/betas)).
+Please note, this card utilizes a [CRM Property List](https://developers.hubspot.com/beta-docs/reference/ui-components/crm-data-components/crm-property-list), a [CRM data component](https://developers.hubspot.com/beta-docs/reference/ui-components/crm-data-components/overview) that queries HubSpot for data properties. To see this component in your portal, replace the `toObjectTypeId` and `toObjectType` properties on the [`<CrmPropertyList />`](https://github.com/hubspotdev/uie-industry-card-samples/blob/61389c9f2eeb838f791a74d750b891a0c96fb932/education/src/app/extensions/Recruiting_Outlook.jsx#L55) component with your desired object selections.
 
-## Usage
+<img width="400" alt="Recruiting outlook card" src="https://github.com/user-attachments/assets/f6c8119e-bbf4-49fa-98fc-5bd01111ec42">
 
-The HubSpot CLI enables you to run this project locally so that you may test and iterate quickly. Getting started is simple, just run this HubSpot CLI command in your project directory and follow the prompts:
+### Course Enrollment
 
-`hs project dev`
+A collection of course statistics accompanied by a table of a student's current and past courseload
+
+
+<img width="400" alt="Course enrollment card" src="https://github.com/user-attachments/assets/1849cab3-01e5-4053-8224-0f39aa19e1c2">

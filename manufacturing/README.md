@@ -1,17 +1,23 @@
-# HubSpot Getting Started Project Template
+# Manufacturing
 
-This is the Getting Started project for HubSpot developer projects. It contains a private app, a CRM card written in React, and a serverless function that the CRM card is able to interact with. This code is intended to help developers get up and running with developer projects quickly and easily.
+## Cards
 
-## Requirements
+### Returns
 
-There are a few things that must be set up before you can make use of this getting started project.
+A form used to initiate a furniture return after purchase, accompanied by a table of associated furniture pieces
 
-- You must have an active HubSpot account.
-- You must have the [HubSpot CLI](https://www.npmjs.com/package/@hubspot/cli) installed and set up.
-- You must have access to developer projects (developer projects are currently [in public beta under "CRM Development Tools"](https://app.hubspot.com/l/whats-new/betas)).
+<img width="400" alt="Returns card" src="https://github.com/user-attachments/assets/0c7830b3-5563-4904-b86c-100ec4d190de">
 
-## Usage
+### Product Review
 
-The HubSpot CLI enables you to run this project locally so that you may test and iterate quickly. Getting started is simple, just run this HubSpot CLI command in your project directory and follow the prompts:
+Displays furniture properties in a property list with an image of the piece
 
-`hs project dev`
+Please note, this card utilizes a [CRM Property List](https://developers.hubspot.com/beta-docs/reference/ui-components/crm-data-components/crm-property-list), a [CRM data component](https://developers.hubspot.com/beta-docs/reference/ui-components/crm-data-components/overview) that queries HubSpot for data properties. To see this component in your portal, replace the `toObjectTypeId` and `toObjectType` properties on the [`<CrmPropertyList />`](https://github.com/hubspotdev/uie-industry-card-samples/blob/61389c9f2eeb838f791a74d750b891a0c96fb932/manufacturing/src/app/extensions/Product-Review.jsx#L31) component with your desired object selections.
+
+<img width="400" alt="Product review card" src="https://github.com/user-attachments/assets/6c2c325d-bc26-4090-8549-2aa5d6985609">
+
+### Manufacturing
+
+Manufacturing order production status displayed with progress bars and further details in a step indicator and table
+
+<img width="400" alt="Manufacturing card" src="https://github.com/user-attachments/assets/abcb5414-3604-40b6-af1d-f363c25aade8">
